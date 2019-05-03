@@ -1,4 +1,4 @@
-FROM debian:9.5-slim
+FROM node:10
 
 LABEL "com.github.actions.name"="Install swaggerCodeGen"
 LABEL "com.github.actions.description"="setup and configure swagger-codegen via npm install"
