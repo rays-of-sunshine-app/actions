@@ -1,4 +1,4 @@
-FROM timbru31/java-node:latest
+FROM timbru31/java-node:lates
 
 LABEL "com.github.actions.name"="Install swaggerCodeGen"
 LABEL "com.github.actions.description"="setup and configure swagger-codegen via npm install"
