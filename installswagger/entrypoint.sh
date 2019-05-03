@@ -27,7 +27,10 @@ mkdir client
 echo  "OUTPUT DIRECTORY: " `ls -lrta`
 
 echo "RUNNING: npm install -g swagger-codegen-cli"
-npm install -g swagger-codegen-cli
 
-echo "RUNNING: swagger-codegen-cli generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true"
-swagger-codegen-cli generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true
+wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.4/swagger-codegen-cli-2.4.4.jar -O ../swagger-codegen-cli.jar
+
+curl http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.4/swagger-codegen-cli-2.4.4.jar --output ../swagger-codegen-cli.jar
+
+echo "RUNNING: java -jar swagger-codegen-cli-2.4.4.jar generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true"
+java -jar swagger-codegen-cli-2.4.4.jar generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true
