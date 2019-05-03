@@ -22,18 +22,13 @@ echo "WORKSPACE: " $PWD
 
 cd ./mobile
 echo "MOBILE: " $PWD
-
 mkdir client
-echo  "OUTPUT DIRECTORY: " `ls -lrta`
 
 echo "RUNNING: curl for swagger-codegen-cli.2.4.4.jar"
-#wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.4/swagger-codegen-cli-2.4.4.jar -O ../swagger-codegen-cli-2.4.4.jar
 curl http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.4/swagger-codegen-cli-2.4.4.jar --output ./swagger-codegen-cli-2.4.4.jar
 
 echo  "OUTPUT DIRECTORY: " `ls -lrta`
-
 chmod 777 swagger-codegen-cli-2.4.4.jar
-
 
 echo "RUNNING: java -jar swagger-codegen-cli-2.4.4.jar generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true"
 java -jar swagger-codegen-cli-2.4.4.jar generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true
