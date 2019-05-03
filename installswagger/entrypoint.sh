@@ -18,14 +18,16 @@ if [ -n "$NPM_AUTH_TOKEN" ]; then
   chmod 0600 "$NPM_CONFIG_USERCONFIG"
 fi
 
-echo $PWD
+echo "WORKSPACE: " $PWD
+
 cd ./mobile
-echo $PWD
+echo "MOBILE: " $PWD
+
 mkdir client
-echo `ls`
+echo  "OUTPUT DIRECTORY: " `ls -lrta`
 
-echo "npm install -g swagger-nodegen-cli"
-npm install -g swagger-nodegen-cli
+echo "RUNNING: npm install -g swagger-codegen-cli"
+npm install -g swagger-codegen-cli
 
-echo "swagger-nodegen-cli generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true"
-swagger-nodegen-cli generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true
+echo "RUNNING: swagger-codegen-cli generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true"
+swagger-codegen-cli generate -i ../api/rosa-api.yaml -l javascript -o client/. --additional-properties usePromises=true,useES6=true
